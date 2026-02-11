@@ -25,6 +25,7 @@ RSpec.shared_context 'with configured RubyLLM' do
       config.openai_api_key = ENV.fetch('OPENAI_API_KEY', 'test')
       config.openrouter_api_key = ENV.fetch('OPENROUTER_API_KEY', 'test')
       config.perplexity_api_key = ENV.fetch('PERPLEXITY_API_KEY', 'test')
+      config.pollinations_api_key = ENV.fetch('POLLINATIONS_API_KEY', 'test')
       config.request_timeout = 600
       config.retry_backoff_factor = 3
       config.retry_interval = 1

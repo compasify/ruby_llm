@@ -19,6 +19,7 @@ chat_models = [
   { provider: :openai, model: 'gpt-5-nano' },
   { provider: :openrouter, model: 'claude-haiku-4-5' },
   { provider: :perplexity, model: 'sonar' },
+  { provider: :pollinations, model: 'openai' },
   { provider: :vertexai, model: 'gemini-2.5-flash' },
   { provider: :xai, model: 'grok-4-fast-non-reasoning' }
 ].freeze
@@ -86,5 +87,15 @@ TRANSCRIPTION_MODELS = [
   { provider: :gemini, model: 'gemini-2.5-flash' },
   { provider: :openai, model: 'gpt-4o-transcribe-diarize' },
   { provider: :openai, model: 'whisper-1' },
+  { provider: :pollinations, model: 'whisper-large-v3' },
   { provider: :vertexai, model: 'gemini-2.5-flash' }
+].freeze
+
+IMAGE_GENERATION_MODELS = [
+  { provider: :openai, model: 'gpt-image-1' },
+  { provider: :pollinations, model: 'flux' }
+].freeze
+
+AUDIO_GENERATION_MODELS = [
+  { provider: :pollinations, model: 'tts-1' }
 ].freeze
