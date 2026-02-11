@@ -68,6 +68,10 @@ module RubyLLM
       Transcription.transcribe(...)
     end
 
+    def speak(...)
+      AudioOutput.speak(...)
+    end
+
     def models
       Models.instance
     end

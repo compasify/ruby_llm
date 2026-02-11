@@ -36,6 +36,7 @@ module RubyLLM
                   :default_moderation_model,
                   :default_image_model,
                   :default_transcription_model,
+                  :default_audio_model,
                   # Model registry
                   :model_registry_file,
                   :model_registry_class,
@@ -67,6 +68,7 @@ module RubyLLM
       @default_moderation_model = 'omni-moderation-latest'
       @default_image_model = 'gpt-image-1'
       @default_transcription_model = 'whisper-1'
+      @default_audio_model = 'tts-1'
 
       @model_registry_file = File.expand_path('models.json', __dir__)
       @model_registry_class = 'Model'
