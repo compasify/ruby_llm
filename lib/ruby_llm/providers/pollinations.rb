@@ -5,6 +5,11 @@ module RubyLLM
     # Pollinations API integration.
     # Supports chat, image/video generation, audio (TTS/music), and transcription.
     class Pollinations < Provider
+      include Pollinations::Chat
+      include Pollinations::Media
+      include Pollinations::Streaming
+      include Pollinations::Tools
+
       def api_base
         @config.pollinations_api_base || 'https://text.pollinations.ai'
       end
