@@ -36,4 +36,8 @@ group :development do
   gem "aws-eventstream"
 end
 
+group :development, :test do
+  gem "turbo-rails"
+end
+
 gemspec path: "../"

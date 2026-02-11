@@ -44,3 +44,7 @@ group :development do # rubocop:disable Metrics/BlockLength
   # Optional dependency for Bedrock
   gem 'aws-eventstream'
 end
+
+group :development, :test do
+  gem 'turbo-rails'
+end
