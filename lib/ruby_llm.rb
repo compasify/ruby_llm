@@ -27,6 +27,7 @@ loader.inflector.inflect(
   'openrouter' => 'OpenRouter',
   'pdf' => 'PDF',
   'perplexity' => 'Perplexity',
+  'pollinations' => 'Pollinations',
   'ruby_llm' => 'RubyLLM',
   'vertexai' => 'VertexAI',
   'xai' => 'XAI'
@@ -104,6 +105,7 @@ RubyLLM::Provider.register :ollama, RubyLLM::Providers::Ollama
 RubyLLM::Provider.register :openai, RubyLLM::Providers::OpenAI
 RubyLLM::Provider.register :openrouter, RubyLLM::Providers::OpenRouter
 RubyLLM::Provider.register :perplexity, RubyLLM::Providers::Perplexity
+RubyLLM::Provider.register :pollinations, RubyLLM::Providers::Pollinations
 RubyLLM::Provider.register :vertexai, RubyLLM::Providers::VertexAI
 RubyLLM::Provider.register :xai, RubyLLM::Providers::XAI
 
