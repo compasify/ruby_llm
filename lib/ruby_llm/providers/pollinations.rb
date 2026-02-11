@@ -10,6 +10,10 @@ module RubyLLM
       include Pollinations::Streaming
       include Pollinations::Tools
       include Pollinations::Images
+      include Pollinations::Audio
+      include Pollinations::Transcription
+      include Pollinations::Models
+      include Pollinations::Account
 
       IMAGE_API_BASE = 'https://image.pollinations.ai'
 
@@ -29,6 +33,12 @@ module RubyLLM
         url = images_url(prompt, **payload)
         response = image_connection.get(url)
         parse_image_response(response, model: model)
+      end
+
+      def speak(input, model:, voice: nil, **options)
+        payload = render_speech_payload(input, model: model, voice: voice, **options)
+        response = @connection.post(speech_url, payload)
+        parse_speech_response(response, model: model)
       end
 
       class << self
