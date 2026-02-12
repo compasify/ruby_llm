@@ -19,14 +19,15 @@ module RubyLLM
           "prompt/#{encoded_prompt}#{query_string}"
         end
 
-        def render_image_payload(prompt, model:, size:)
+        def render_image_payload(prompt, model:, size:, **options)
           width, height = parse_size(size)
           {
             prompt: prompt,
             model: model || DEFAULT_IMAGE_MODEL,
             width: width,
             height: height
-          }
+          }.merge(options.slice(:image, :seed, :quality, :safe, :enhance, :negative_prompt,
+                                :duration, :aspect_ratio, :audio))
         end
 
         def parse_image_response(response, model:)
@@ -57,6 +58,7 @@ module RubyLLM
           params = extract_basic_params(options)
           extract_boolean_params(params, options)
           params[:negative_prompt] = options[:negative_prompt] if options[:negative_prompt]
+          params[:image] = options[:image] if options[:image]
           add_video_params(params, options) if options[:model] && video_model?(options[:model])
           params
         end
@@ -77,7 +79,6 @@ module RubyLLM
           params[:duration] = options[:duration] if options[:duration]
           params[:aspectRatio] = options[:aspect_ratio] if options[:aspect_ratio]
           params[:audio] = options[:audio] if options.key?(:audio)
-          params[:image] = options[:image] if options[:image]
         end
 
         def parse_size(size)

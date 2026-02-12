@@ -36,14 +36,15 @@ module RubyLLM
                    provider: nil,
                    assume_model_exists: false,
                    size: '1024x1024',
-                   context: nil)
+                   context: nil,
+                   **options)
       config = context&.config || RubyLLM.config
       model ||= config.default_image_model
       model, provider_instance = Models.resolve(model, provider: provider, assume_exists: assume_model_exists,
                                                        config: config)
       model_id = model.id
 
-      provider_instance.paint(prompt, model: model_id, size:)
+      provider_instance.paint(prompt, model: model_id, size:, **options)
     end
   end
 end

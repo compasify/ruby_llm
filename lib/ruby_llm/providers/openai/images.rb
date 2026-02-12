@@ -11,7 +11,7 @@ module RubyLLM
           'images/generations'
         end
 
-        def render_image_payload(prompt, model:, size:)
+        def render_image_payload(prompt, model:, size:, **_options)
           {
             model: model,
             prompt: prompt,

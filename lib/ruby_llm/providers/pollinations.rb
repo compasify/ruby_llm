@@ -28,8 +28,8 @@ module RubyLLM
         }.compact
       end
 
-      def paint(prompt, model:, size:)
-        payload = render_image_payload(prompt, model: model, size: size)
+      def paint(prompt, model:, size:, **options)
+        payload = render_image_payload(prompt, model: model, size: size, **options)
         url = images_url(prompt, **payload)
         response = image_connection.get(url)
         parse_image_response(response, model: model)
