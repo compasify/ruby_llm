@@ -59,6 +59,7 @@ module RubyLLM
           faraday.response :logger, RubyLLM.logger, bodies: false, log_level: :debug
           faraday.request :retry, max: @config.max_retries || 3, retry_statuses: [429, 500, 502, 503, 504]
           faraday.adapter :net_http
+          faraday.use :llm_errors, provider: self
           faraday.headers['Authorization'] = "Bearer #{@config.pollinations_api_key}"
         end
       end
