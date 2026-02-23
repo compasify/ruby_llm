@@ -15,10 +15,10 @@ module RubyLLM
       include Pollinations::Models
       include Pollinations::Account
 
-      IMAGE_API_BASE = 'https://image.pollinations.ai'
+      IMAGE_API_BASE = 'https://gen.pollinations.ai'
 
       def api_base
-        @config.pollinations_api_base || 'https://text.pollinations.ai'
+        @config.pollinations_api_base || 'https://gen.pollinations.ai'
       end
 
       def headers

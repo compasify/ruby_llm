@@ -16,7 +16,7 @@ module RubyLLM
           encoded_prompt = ERB::Util.url_encode(prompt)
           params = build_image_params(options)
           query_string = params.empty? ? '' : "?#{URI.encode_www_form(params)}"
-          "prompt/#{encoded_prompt}#{query_string}"
+          "image/#{encoded_prompt}#{query_string}"
         end
 
         def render_image_payload(prompt, model:, size:, **options)
@@ -59,6 +59,8 @@ module RubyLLM
           extract_boolean_params(params, options)
           params[:negative_prompt] = options[:negative_prompt] if options[:negative_prompt]
           params[:image] = options[:image] if options[:image]
+          params[:nologo] = true
+          params[:private] = true
           add_video_params(params, options) if options[:model] && video_model?(options[:model])
           params
         end
