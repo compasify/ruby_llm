@@ -46,6 +46,10 @@ module RubyLLM
           Pollinations::Capabilities
         end
 
+        def configuration_options
+          %i[pollinations_api_key pollinations_api_base]
+        end
+
         def configuration_requirements
           %i[pollinations_api_key]
         end
